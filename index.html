@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Cargar reCAPCHA 3!</title>
+
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <!-- <h1 class="text-center">reCAPCHA V3</h1> -->
+        <form action="enviar.php" method="post" id="form_prueba">
+          <div class="mb-3">
+             <label for="name" class="form-label">Nombre</label>
+             <input type="text" class="form-control" name="name">
+          </div>
+          <div class="mb-3">
+             <label for="email" class="form-label">Correo</label>
+             <input type="email" class="form-control" name="email">
+          </div>
+          <input type="hidden" name="token" id="googlecp3" value="">
+        
+          <!-- Site-key de localhost -->
+          <button class="g-recaptcha btn btn-primary" data-sitekey="6LdX3-EZAAAAAGOy-38SLvr6FuEJFDdyPBKMMLY9" data-callback='onSubmit' data-action='submit'>enviar</button>
+        </form>
+
+        <!-- pasos -->
+        <div class="accordion mt-5 mb-5" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                API reCAPCHA v3
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>Cargue la API de JavaScript.</strong>
+                  <p>El siguiente codigo lo agregara en header o footer</p>
+                  <code dir="ltr"><span class="pln">&nbsp;</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://www.google.com/recaptcha/api.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln"><br></span></code>
+                
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+               Callback
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>Agregue una función de devolución de llamada para manejar el token.</strong> 
+                <p>Este script puede ir en un archivo aparte o a consideración</p>
+                <br><code dir="ltr"><span class="pln">&nbsp;</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">function onSubmit(token) {</span><span class="pun"> document.getElementById("demo-form").submit();</span><span class="atv"> }</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln"><br></span></code>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Botón submit del formulario
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>Agrega atributos a tu botón html</strong>
+                <p>Sustituir el botón por defecto del formulario por el siguiente codigo</p>
+                <br><code dir="ltr"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"g-recaptcha"</span><span class="pln"> <br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn">data-sitekey</span><span class="pun">=</span><span class="atv">"reCAPTCHA_site_key_publica"</span><span class="pln"> <br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn">data-callback</span><span class="pun">=</span><span class="atv">'onSubmit'</span><span class="pln"> <br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn">data-action</span><span class="pun">=</span><span class="atv">'submit'</span><span class="tag">&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span><span class="pln"><br></span></code>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFor" aria-expanded="false" aria-controls="collapseThree">
+                Input hidden
+              </button>
+            </h2>
+            <div id="collapseFor" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>Crear un input hiden dentro del form</strong>
+                <p>Al crear este input recibira como valor el token generado para hacer la validacion del lado del servidor</p>
+                <p>Agregar una variable más en el script para que se pueda enviar el input oculto. ademas de que debe contar con la etiqueta name</p>
+                <p> <span>&lt;</span>input type="hidden" name="token" id="googlecp3" value=""></p>
+                <br><code dir="ltr"><span class="pln">&nbsp;</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">function onSubmit(token) {</span><span class="pun"> var token=token; document.getElementById("googlecp3").value = token; document.getElementById("form_prueba").submit();</span><span class="atv"> }</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln"><br></span></code>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                Send form post
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>Configuracion del form</strong>
+                <br><code>action="enviar.php" method="post" id="form_prueba"</code>
+                <p>Al dar click en enviar se debe recibir el $_POST[''] en un archivo php con el nombre enviar</p>
+                <br><code>$nombre = $_POST['name'];
+                  $email = $_POST['email'];
+                  $token = $_POST['token'];</code>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+                Validation Serve
+              </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>Para la validacion del token</strong>
+                <p>Crear una variable $pivate_key="reCAPTCHA_site_key_private";</p>
+                <br><code>$ch = curl_init();
+                  curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+                  curl_setopt($ch, CURLOPT_POST, 1);
+                  curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => $pivate_key, 'response' => $token)));
+                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                  $response = curl_exec($ch);
+                  curl_close($ch);
+                  $arrResponse = json_decode($response, true);
+                   var_dump($arrResponse);
+                  // verify the response
+                  if($arrResponse["success"] == '1' ) {
+                      echo $nombre.'<br>';
+                      echo $email.'<br>';
+                      echo $token;
+                  } else {
+                      // spam submission
+                      // show error message
+                      echo "Error";
+                  }</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
+      <!-- script de google capcha 3 -->
+      <script src="https://www.google.com/recaptcha/api.js"></script>
+      <script>
+        function onSubmit(token) {
+          console.log(token)
+          var token=token;
+          document.getElementById("googlecp3").value = token;
+          document.getElementById("form_prueba").submit();
+        }
+      </script>

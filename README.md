@@ -1,12 +1,12 @@
-# Google-reCaptchav3
-Documentación para integracion del captcha version 3 en sitios web con un ejemplo funcional.
-puedes descargar el ejemplo o revisar la documentación que trate de ser lo mas claro posible.
-si te gusta compartelo y adjunta mi nombre :)
+# USE
+I present the use of Google reCaptcha version 3 for the integration of its functionality in websites.
+I help show how to use it for PHP technology and attached a documentation to help those who
+want to use the integration.
 
-#Nota:
-No se podrá ejecutar correctamente en esta prueba porque requiere
-un capcha con este nombre de dominio.
-Descarga el proyecto para realizar pruebas en localhost.
+# Visit URL
+- The correct operation cannot be visualized because it does not correspond to the domio.
+
+https://alevirdz.github.io/Google-reCaptchav3/
 
 
-Visualizar: https://alevirdz.github.io/Google-reCaptchav3/
+- If it helps, rate my work
